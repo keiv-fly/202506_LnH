@@ -160,6 +160,9 @@ UI modules import only their core’s events and APIs.
 - CI pipelines in `/tests/ci` run all suites and enforce coverage. Before running Playwright tests locally or in CI, install the browsers with `npx playwright install`.
 
 ---
+## Build & Deployment
+- Bundled with Vite. The `vite.config.js` sets `base: '/202506_LnH/'` so assets resolve correctly on GitHub Pages.
+- Run `npm run deploy` to build and publish the `dist` directory using `gh-pages`.
 
 ## Extensibility & Next Steps
 - Add new map cores (e.g., dungeon crawler, naval travel).
