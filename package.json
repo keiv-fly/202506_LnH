@@ -9,7 +9,9 @@
     "preview": "vite preview",
     "test:core": "jest --config tests/ci/jest.config.js --runInBand",
     "test:ui": "playwright test --config tests/ci/playwright.config.js",
-    "test": "npm run test:core && npm run test:ui"
+    "test": "npm run test:core && npm run test:ui",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,7 @@
     "phaser": "^3.90.0"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "jest": "^30.0.2",
     "playwright": "^1.53.1",
     "vite": "^6.3.5"
