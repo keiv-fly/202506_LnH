@@ -17,8 +17,8 @@ export default class BattleScene extends Phaser.Scene {
     }
 
     // simple player and enemy as rectangles
-    this.playerRect = this.add.rectangle(size / 2, size / 2, size - 4, size - 4, 0x00ff00);
-    this.enemyRect = this.add.rectangle(5 * size + size / 2, 5 * size + size / 2, size - 4, size - 4, 0xff0000);
+    this.playerRect = this.add.rectangle(size / 2, 4 * size + size / 2, size - 4, size - 4, 0x00ff00);
+    this.enemyRect = this.add.rectangle(9 * size + size / 2, 4 * size + size / 2, size - 4, size - 4, 0xff0000);
 
     this.core.emitter.on('battleStart', ({ player, enemy }) => {
       console.log('Battle started', player, enemy);
