@@ -115,7 +115,7 @@ Shared code (entities, events) lives in `/src/core/shared` and is imported by ea
 ---
 
 ## Shared Systems
-- **entities.js**: Base `Entity` with position, stats, actions list.
+- **entities.js**: Base `Entity` with position, `hp`, and `mp` stats.
 - **eventEmitter.js**: Simple pub/sub for events across core and UI.
 
 ---
@@ -137,7 +137,7 @@ Shared code (entities, events) lives in `/src/core/shared` and is imported by ea
 ---
 
 ## UI Components
-- **Battle UI** (`/ui/battle`): health bar, action menu, turn log.
+- **Battle UI** (`/ui/battle`): health bar, action menu, turn log, player stats display.
 - **World UI** (`/ui/world`): worldHUD, travelMenu.
 - **City UI** (`/ui/city`): tradeInterface, dialogueBox.
 
