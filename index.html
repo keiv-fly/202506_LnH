@@ -5,10 +5,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LnH</title>
+    <style>
+      #battle-log {
+        font-family: monospace;
+        font-size: 12px;
+        max-height: 100px;
+        overflow-y: auto;
+        border: 1px solid #ccc;
+        padding: 4px;
+        width: 320px;
+      }
+    </style>
 </head>
 
 <body>
     <div id="game-container"></div>
+    <div id="battle-log"></div>
     <script type="module" src="./src/phaser/index.js"></script>
 </body>
 

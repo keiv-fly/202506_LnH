@@ -5,6 +5,7 @@ export default class BattleScene extends Phaser.Scene {
   constructor() {
     super('battle');
     this.core = new BattleCore();
+    this.logEl = null;
   }
 
   create() {
@@ -20,9 +21,27 @@ export default class BattleScene extends Phaser.Scene {
     this.playerRect = this.add.rectangle(size / 2, size / 2, size - 4, size - 4, 0x00ff00);
     this.enemyRect = this.add.rectangle(5 * size + size / 2, 5 * size + size / 2, size - 4, size - 4, 0xff0000);
 
+    this.logEl = document.getElementById('battle-log');
+    const addLog = (msg) => {
+      if (!this.logEl) return;
+      const div = document.createElement('div');
+      div.textContent = msg;
+      this.logEl.appendChild(div);
+      this.logEl.scrollTop = this.logEl.scrollHeight;
+    };
+
     this.core.emitter.on('battleStart', ({ player, enemy }) => {
-      console.log('Battle started', player, enemy);
+      addLog(`Battle started: ${player.name} vs ${enemy.name}`);
+    });
+
+    this.core.emitter.on('attack', ({ attacker, defender, damage }) => {
+      addLog(`${attacker.name} hits ${defender.name} for ${damage}`);
+    });
+
+    this.input.keyboard.on('keydown-SPACE', () => {
+      this.core.playerAttack();
     });
     this.core.start();
   }
 }
+
