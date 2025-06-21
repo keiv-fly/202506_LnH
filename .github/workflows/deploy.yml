@@ -41,7 +41,13 @@ jobs:
       # 6. Build the production bundle
       - name: Build game
         run: npm run build
-      # 7. Deploy to GitHub Pages (only on push to main)
+
+      # 7. Install rsync so the deploy action can copy files
+      - name: Install rsync
+        run: |
+          apt-get update
+          apt-get install -y rsync
+      # 8. Deploy to GitHub Pages (only on push to main)
       - name: Deploy to GitHub Pages
         if: github.event_name == 'push'
         uses: JamesIves/github-pages-deploy-action@v4
