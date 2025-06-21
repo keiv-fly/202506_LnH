@@ -137,7 +137,7 @@ Shared code (entities, events) lives in `/src/core/shared` and is imported by ea
 ---
 
 ## UI Components
-- **Battle UI** (`/ui/battle`): health bar, action menu, turn log.
+ - **Battle UI** (`/ui/battle`): health bar, action menu, turn log, directional move buttons.
 - **World UI** (`/ui/world`): worldHUD, travelMenu.
 - **City UI** (`/ui/city`): tradeInterface, dialogueBox.
 
