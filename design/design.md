@@ -139,6 +139,8 @@ Shared code (entities, events) lives in `/src/core/shared` and is imported by ea
 
 ## UI Components
  - **Battle UI** (`/ui/battle`): health bar, action menu, turn log, directional move buttons.
+   - The turn log is a DOM element (`#turn-log`) created by `battleScene`.
+     It displays messages when the battle starts and whenever the player moves.
 - **World UI** (`/ui/world`): worldHUD, travelMenu.
 - **City UI** (`/ui/city`): tradeInterface, dialogueBox.
 
