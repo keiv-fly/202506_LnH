@@ -10,24 +10,32 @@ on:
 
 jobs:
   build-and-deploy:
+    # Use the official Playwright image (includes Node.js, browsers, drivers)
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:latest
+      # (Optionally tweak shared-memory or add capabilities if you hit chromium sandbox issues)
+      options: --shm-size 1gb
+
     steps:
       # 1. Check out the repository
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. Set up Node.js
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      # 2. Set up Node.js environment (already comes with Node in the Playwright image)
+      - name: Setup Node.js cache
+        uses: actions/cache@v3
         with:
-          node-version: '22'
-          cache: 'npm'
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
-      # 3. Install dependencies
+      # 3. Install dependencies (including Playwright client)
       - name: Install dependencies
         run: npm ci
 
-      # 4. Run tests
+      # 4. Run tests (browsers are pre-installed in this container)
       - name: Run tests
         run: npm test
 
