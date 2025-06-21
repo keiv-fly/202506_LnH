@@ -157,7 +157,7 @@ UI modules import only their core’s events and APIs.
 ## Testing & CI
 - `/tests/core/battle`, `/tests/core/world`, `/tests/core/city` with Jest.
 - `/tests/phaser` integration tests with Playwright.
-- CI pipelines in `/tests/ci` run all suites and enforce coverage.
+- CI pipelines in `/tests/ci` run all suites and enforce coverage. Before running Playwright tests locally or in CI, install the browsers with `npx playwright install`.
 
 ---
 

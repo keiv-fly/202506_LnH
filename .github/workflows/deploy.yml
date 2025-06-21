@@ -38,12 +38,10 @@ jobs:
       # 4. Run tests (browsers are pre-installed in this container)
       - name: Run tests
         run: npm test
-
-      # 5. Build the production bundle
+      # 6. Build the production bundle
       - name: Build game
         run: npm run build
-
-      # 6. Deploy to GitHub Pages (only on push to main)
+      # 7. Deploy to GitHub Pages (only on push to main)
       - name: Deploy to GitHub Pages
         if: github.event_name == 'push'
         uses: JamesIves/github-pages-deploy-action@v4
