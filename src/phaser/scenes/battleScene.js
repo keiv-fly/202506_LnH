@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import BattleCore from '../../core/battle/battleCore.js';
+import createDirectionButtons from '../ui/battle/directionButtons.js';
 
 export default class BattleScene extends Phaser.Scene {
   constructor() {
@@ -24,5 +25,15 @@ export default class BattleScene extends Phaser.Scene {
       console.log('Battle started', player, enemy);
     });
     this.core.start();
+
+    const onMove = (dx, dy) => {
+      const newX = Phaser.Math.Clamp(this.core.player.x + dx, 0, gridSize - 1);
+      const newY = Phaser.Math.Clamp(this.core.player.y + dy, 0, gridSize - 1);
+      this.core.player.x = newX;
+      this.core.player.y = newY;
+      this.playerRect.setPosition(newX * size + size / 2, newY * size + size / 2);
+    };
+
+    this.directionUI = createDirectionButtons(this, onMove);
   }
 }
