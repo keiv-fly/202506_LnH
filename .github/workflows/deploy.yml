@@ -13,7 +13,7 @@ jobs:
     # Use the official Playwright image (includes Node.js, browsers, drivers)
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:latest
+      image: mcr.microsoft.com/playwright:v1.53.1-jammy
       # (Optionally tweak shared-memory or add capabilities if you hit chromium sandbox issues)
       options: --shm-size 1gb
 
