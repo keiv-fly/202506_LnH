@@ -99,6 +99,7 @@ Shared code (entities, events) lives in `/src/core/shared` and is imported by ea
 ### Battle Core
 - **battleCore.js**: Manages turn loop, action queue, and event emission.
 - **battleEntities.js**: Player and Rat classes extend shared `Entity`.
+- **Default Positions**: Player starts at `(0,4)` and Rat at `(9,4)` on the battle grid.
 - **battleCombat.js**: Damage, hit/miss, and status logic.
 - **battleTurnManager.js** & **battleTimeQueue.js**: Schedule and dequeue actions by cost.
 
